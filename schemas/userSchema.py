@@ -6,6 +6,10 @@ class UserCreate(BaseModel):
     email: str
     password: str
 
+class UserLogin(BaseModel):
+    email: str
+    password: str
+
 class UserOut(BaseModel):
     id: int
     name: str
@@ -13,3 +17,10 @@ class UserOut(BaseModel):
 
     class Config:
         orm_mode = True
+
+class TokenResponse(BaseModel):
+    access_token: str
+    token_type: str
+
+    class Config:
+        from_attributes = True  # 
